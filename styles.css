@@ -1,0 +1,231 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(79, 76, 76);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider {
+  width: 55vw;
+  overflow-x: hidden;
+  height: 80vh;
+}
+
+.radio {
+  display: none;
+}
+
+.slide-wrap {
+  display: flex;
+  width: 400%; 
+  border-radius: 1em;
+}
+
+.slide {
+  width: 25%;
+  transition: all 0.78s ease;
+  border-radius: 1em;
+}
+
+.slide img { 
+  width: 100%;
+  height: 55vh;
+  border-radius: 1em;
+}
+
+.text-navigation-wrap {
+  display: grid;
+  grid-template-columns: 40vw 15vw;
+}
+
+.sliders-text {
+  width: 40vw;
+  height: 5vh;
+  overflow-x: hidden;
+  margin-top: 2em;
+}
+
+.sliders-text-wrap {
+  display: flex;
+  width: 400%;
+}
+
+.text {
+  color: white;
+  font-size: 1.5em;
+  width: 25%;
+  transition: all 0.8s ease;
+}
+
+.navigation {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 1.5em;
+  margin-top: 1.6em;
+}
+
+.main-control {
+  width: 2.5em;
+  height: 2.5em;
+  margin-right: 0.8em;
+  cursor: pointer;
+  position: relative;
+}
+.main-control:last-child {
+  margin-right: -3px;
+}
+.main-control:hover .inside-control {
+  background-color: white;
+}
+.main-control:active .inside-control {
+  background-color: rgb(179, 169, 169);
+}
+.main-control:hover .inside-control::after  {
+  border: 0.2em solid white;
+}
+
+.inside-control {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  background-color: rgb(84, 171, 233);
+  transition: all 0.4s ease;
+  opacity: 1;
+}
+.inside-control::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  background-color: black;
+  border: 0.2em solid rgb(84, 171, 233);
+  transition: all 0.3s ease;
+  opacity: 0;
+  box-sizing: border-box;
+}
+
+#radio1:checked ~ .text-navigation-wrap .navigation .main-control[for="radio1"] .inside-control::after,
+#radio2:checked ~ .text-navigation-wrap .navigation .main-control[for="radio2"] .inside-control::after,
+#radio3:checked ~ .text-navigation-wrap .navigation .main-control[for="radio3"] .inside-control::after,
+#radio4:checked ~ .text-navigation-wrap .navigation .main-control[for="radio4"] .inside-control::after{
+  opacity: 1;
+}
+
+#radio1:checked ~ .slide-wrap .slide1 {
+  margin-left: 0;
+}
+
+#radio2:checked ~ .slide-wrap .slide1 {
+  margin-left: -25%;
+}
+
+#radio3:checked ~ .slide-wrap .slide1 {
+  margin-left: -50%;
+}
+
+#radio4:checked ~ .slide-wrap .slide1 {
+  margin-left: -75%;
+}
+
+#radio1:checked ~ .text-navigation-wrap .sliders-text-main-wrap .sliders-text .sliders-text-wrap .text-one {
+  margin-left: 0;
+}
+
+#radio2:checked ~ .text-navigation-wrap .sliders-text-main-wrap .sliders-text .sliders-text-wrap .text-one {
+  margin-left: -25%;
+}
+
+#radio3:checked ~ .text-navigation-wrap .sliders-text-main-wrap .sliders-text .sliders-text-wrap .text-one {
+  margin-left: -50%;
+}
+
+#radio4:checked ~ .text-navigation-wrap .sliders-text-main-wrap .sliders-text .sliders-text-wrap .text-one {
+  margin-left: -75%;
+}
+
+
+@media screen and (max-width: 1040px) {
+
+  .slider {
+    width: 60vw;
+  }
+
+  .text-navigation-wrap {
+    grid-template-columns: 60vw;
+    grid-template-rows: 10vh 10vh;
+    
+  }
+
+  .sliders-text-main-wrap {
+    grid-row: 2 / 3;
+  }
+
+  .slide img {
+    height: 30vh;
+  }
+
+  .navigation {
+    justify-content: center;
+  }
+
+  .text {
+    font-size: 1.5em;
+  }
+
+  .sliders-text {
+    width: 80vw;
+  }
+
+}
+
+@media screen and (max-width: 699px) {
+
+  .slider {
+    width: 70vw;
+  }
+
+  .text-navigation-wrap {
+    grid-template-columns: 70vw;    
+  }
+
+  .text {
+    font-size: 1.1em;
+  }
+
+}
+
+@media screen and (max-width: 415px) {
+
+  .slider {
+    width: 80vw;
+  }
+
+  .text-navigation-wrap {
+    grid-template-columns: 80vw;
+    grid-template-rows: 5vh 5vh;    
+  }
+
+  .text {
+    font-size: 0.9em;
+  }
+
+  .navigation {
+    margin-top: 0.7em;
+  }
+
+}
+
+
+
